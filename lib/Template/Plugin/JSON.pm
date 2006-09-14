@@ -5,9 +5,9 @@ use base qw/Template::Plugin::VMethods/;
 
 use Carp qw/croak/;
 
-our $VERSION = "0.01";
+our $VERSION = "0.02";
 
-our @SCALAR_OPTS = our @LIST_OPS = our @HASH_OPS = ("json");
+our @SCALAR_OPS = our @LIST_OPS = our @HASH_OPS = ("json");
 
 sub new {
     my ( $self, $c, $driver ) = @_;
