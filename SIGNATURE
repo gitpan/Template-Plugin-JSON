@@ -1,5 +1,5 @@
 This file contains message digests of all files listed in MANIFEST,
-signed via the Module::Signature module, version 0.54.
+signed via the Module::Signature module, version 0.55.
 
 To verify the content in this distribution, first make sure you have
 Module::Signature installed, then type:
@@ -14,16 +14,17 @@ not run its Makefile.PL or Build.PL.
 -----BEGIN PGP SIGNED MESSAGE-----
 Hash: SHA1
 
-SHA1 161b3cb89a4964f35639be08fb31425e362c0efd MANIFEST
-SHA1 dc6aebd779d6f5e7fc4afc6d9c76fe154458e833 META.yml
+SHA1 5645280f0b0d5368ce06048492d92709a577df5d Changes
+SHA1 580112a6f79031df5135146833ace92f8700dcb1 MANIFEST
+SHA1 77ea79d9d9657a14af575dab934fdf29d0ba04fe META.yml
 SHA1 8489eca512abcf9e80945281cb7b245fcf09d0b6 Makefile.PL
-SHA1 9376a4d7213fe4d9c2c305271f951bb3efb520d7 lib/Template/Plugin/JSON.pm
-SHA1 a7a9dacee8a802878f3762329b9bea5f25428330 t/basic.t
+SHA1 61caa603c775ff9b26ce7d5f4651d429678938bd lib/Template/Plugin/JSON.pm
+SHA1 67af1f4fbf1b54cc0f0a367b6d5b163c7d3997dc t/basic.t
 SHA1 aef0f175251a926c9542930a2ce0baef594dc24e t/live.t
 -----BEGIN PGP SIGNATURE-----
-Version: GnuPG v1.4.1 (Darwin)
+Version: GnuPG v1.4.5 (Darwin)
 
-iD8DBQFFCTpRVCwRwOvSdBgRAg2NAJ90WqoTSNzsUi9qihpQXfKtPx+hKwCgoKg9
-Hs5tF7UHAo10MWZ2Eb5u7ag=
-=p0Kr
+iD8DBQFGREznVCwRwOvSdBgRAkYrAKCVhNAmfgQbLPSnl/VOxInODp4/lwCbBIiR
+c2ZkIVuUJ5x1FFc8SavpPtg=
+=9Zjk
 -----END PGP SIGNATURE-----
