@@ -9,7 +9,7 @@ use Carp qw/croak/;
 
 extends qw(Mouse::Object Template::Plugin);
 
-our $VERSION = "0.04";
+our $VERSION = "0.05";
 
 
 has context => (
@@ -30,12 +30,15 @@ has json_args => (
 );
 
 sub BUILDARGS {
-    my ( $class, $c, $args ) = @_;
+    my ( $class, $c, @args ) = @_;
 
-	unless ( ref $args ) {
-		warn "Single arguent form is deprecated, this module always uses JSON/JSON::XS now";
-		$args = {};
+	my $args;
+
+	if ( @args == 1 and not ref $args[0] ) {
+		warn "Single argument form is deprecated, this module always uses JSON/JSON::XS now";
 	}
+
+	$args = ref $args[0] ? $args[0] : {};
 
 	return { %$args, context => $c, json_args => $args };
 }
@@ -91,7 +94,7 @@ Template::Plugin::JSON - Adds a .json vmethod for all TT values.
 
 This plugin provides a C<.json> vmethod to all value types when loaded.
 
-It will load the L<JSON> module (you probably want L<JSON::XS installed for
+It will load the L<JSON> module (you probably want L<JSON::XS> installed for
 automatic speed ups).
 
 Any options on the USE line are passed through to the JSON object, much like L<JSON/to_json>.
@@ -102,9 +105,7 @@ L<JSON>, L<Template::Plugin>
 
 =head1 VERSION CONTROL
 
-This module is maintained using Darcs. You can get the latest version from
-L<http://nothingmuch.woobling.org/Template-Plugin-JSON/>, and use C<darcs send>
-to commit changes.
+L<http://github.com/nothingmuch/template-plugin-json/>
 
 =head1 AUTHOR
 
