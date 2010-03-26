@@ -3,7 +3,7 @@
 use strict;
 use warnings;
 
-use Test::More tests => 5;
+use Test::More tests => 9;
 
 use Template;
 use JSON;
@@ -29,3 +29,30 @@ is_deeply(
 	$vars,
 	"round tripping",
 );
+
+my $warnings = 0;
+
+local $SIG{__WARN__} = sub { $warnings++ };
+
+ok( Template->new->process(
+	\'[% USE JSON %][% SET foo = [ 1, 2, 3 ]; foo.json %]',
+	{},
+	\(my $blah),
+), "template processing" ) || warn( Template->error );
+
+is( $warnings, 0, "no warning" );
+
+# pass JSON to the template
+ok( Template->new->process(
+        \qq{[% USE JSON %][% USE Dumper -%]
+	    [%- val = JSON.json_decode(json_string) -%]
+	    [%- 'ok' IF val.blah.foo == 'bar' -%]},
+        my $json_vars = {
+            json_string => $out,
+        },
+        \( my $code_out ),
+    ),
+    "template processing"
+) || warn( Template->error );
+
+is($code_out,'ok', 'Match on extract');
